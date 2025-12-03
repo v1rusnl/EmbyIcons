@@ -279,13 +279,13 @@ namespace EmbyIcons.Services
             string scoreText;
             if (rating.IsPercent)
             {
-                scoreText = Math.Round(rating.Score).ToString("F0") + "%";
+                scoreText = Math.Round(rating.Score).ToString("F0");
             }
             else
             {
                 scoreText = rating.Score.ToString("F1", CultureInfo.InvariantCulture);
             }
-            var fontSize = context.IconSize * 0.75f;
+            var fontSize = context.IconSize * 0.6f;
 
             var textPaint = context.TextPaint;
             textPaint.Typeface = typeface;
@@ -367,13 +367,13 @@ namespace EmbyIcons.Services
             string scoreText;
             if (rating.IsPercent)
             {
-                scoreText = Math.Round(rating.Score).ToString("F0") + "%";
+                scoreText = Math.Round(rating.Score).ToString("F0");
             }
             else
             {
                 scoreText = rating.Score.ToString("F1", CultureInfo.InvariantCulture);
             }
-            var fontSize = context.IconSize * 0.75f;
+            var fontSize = context.IconSize * 0.6f;
 
             var textPaint = context.TextPaint;
 
@@ -409,7 +409,7 @@ namespace EmbyIcons.Services
                 DrawRatingBackground(context.Canvas, rating.BackgroundShape, rating.BackgroundColor, rating.BackgroundOpacity, bgRect);
             }
 
-            var textPos = new SKPoint(currentX + (scoreAreaWidth - textWidth) / 2f, startY + (totalSize.Height - textBounds.Height) / 2f - textBounds.Top);
+            var textPos = new SKPoint(currentX + (scoreAreaWidth - textWidth) / 2f, startY + (totalSize.Height - textBounds.Height) / 2f - textBounds.Top - 2);
 
             using var textStrokePaint = new SKPaint { IsAntialias = true, Color = SKColors.Black, Style = SKPaintStyle.StrokeAndFill };
             DrawRatingText(context.Canvas, rating.BackgroundShape, rating.BackgroundOpacity, scoreText, textPaint, textStrokePaint, textPos);
